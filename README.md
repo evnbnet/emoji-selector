@@ -45,4 +45,29 @@ npm run dev
 
 ## Contact
 
+=======
+```
+😀
+↓
+Copied to clipboard!
+```
+
+## Tech Stack
+
+- Astro
+- Tailwind CSS
+- Vanilla JavaScript
+- Clipboard API
+
+## Local Development
+
+```bash
+git clone https://github.com/evnbnet/emoji-selector.git
+cd emoji-selector
+npm install
+npm run dev
+```
+
+## Contact
+
 Want more emojis or features? Contact me on Discord: evan.b._
