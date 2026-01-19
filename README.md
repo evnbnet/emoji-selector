@@ -21,11 +21,11 @@
 ## Demo
 
 Click any emoji to copy it:
-
+```
 😀
 ↓
 Copied to clipboard!
-
+```
 
 ## Tech Stack
 
