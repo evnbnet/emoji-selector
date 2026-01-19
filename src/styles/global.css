@@ -1,0 +1,48 @@
+@import "tailwindcss";
+
+body {
+    background-color: #0b0b0a;
+}
+
+#emojiGrid::-webkit-scrollbar {
+  width: 8px;
+}
+#emojiGrid::-webkit-scrollbar-thumb {
+  background: #373737;
+  border-radius: 8px;
+}
+#emojiGrid::-webkit-scrollbar-track {
+  background: #141415;
+}
+
+.dropdown-item {
+  width: 100%;
+  text-align: left;
+  padding: 0.5rem 0.75rem;
+  font-size: 0.875rem;
+  color: #d5d5d4;
+  transition: background 0.15s;
+}
+
+.dropdown-item:hover {
+  background: #1f1f21;
+}
+
+/* Scrollbar dropdown */
+.dropdown-scroll::-webkit-scrollbar {
+  width: 6px;
+}
+
+.dropdown-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.dropdown-scroll::-webkit-scrollbar-thumb {
+  background: #373737;
+  border-radius: 999px;
+}
+
+.dropdown-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: #373737 transparent;
+}

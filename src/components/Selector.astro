@@ -1,0 +1,76 @@
+---
+import { emojiArray } from "../data/emojis";
+---
+
+<div class="min-h-screen flex items-center justify-center px-4 sm:px-6">
+  <div class="flex flex-col items-center text-center gap-4 w-full max-w-[600px]">
+    
+    <div>
+      <h1 class="text-2xl sm:text-3xl font-semibold text-[#d5d5d4]">Emoji Selector</h1>
+      <p class="text-gray-400 text-sm sm:text-md">Use symbols easily</p>
+    </div>
+
+    <div
+      id="emojiGrid"
+      class="h-[400px] sm:h-[450px] w-full sm:w-[550px] bg-[#141415]
+             border border-[#373737] rounded-lg p-3 sm:p-5 grid grid-cols-6 sm:grid-cols-8 gap-1 overflow-y-auto"
+    >
+      {emojiArray.map(emoji => (
+        <button 
+          type="button"
+          class="emoji-btn text-lg sm:text-xl text-white flex items-center justify-center rounded-md p-1 sm:p-1.5 border border-transparent hover:border-[#373737] hover:bg-[#1f1f21] active:scale-95 transition"
+          aria-label={`Copy ${emoji}`} 
+          data-emoji={emoji}
+        >
+          {emoji}
+        </button>
+      ))}
+    </div>
+
+    <p class="text-gray-400 text-xs sm:text-sm mt-2 sm:mt-4">
+      If you want to add more emojis or features, contact me on Discord: 
+      <span class="text-[#d5d5d4]">evan.b._</span>
+    </p>
+
+  </div>
+  
+  <div 
+    id="toast" 
+    class="fixed top-4 sm:top-6 right-4 sm:right-6 opacity-0 pointer-events-none bg-green-500/10 border border-green-400/30 text-green-300 px-4 py-2 rounded-lg text-sm transition-opacity duration-300"
+  >
+    Copied to clipboard
+  </div> 
+</div>
+
+<script>
+  const toast = document.getElementById("toast");
+  let toastTimeout: number | undefined;
+
+  function showToast() {
+    if (!toast) return;
+    
+    toast.classList.remove("opacity-0", "pointer-events-none");
+    toast.classList.add("opacity-100");
+
+    if (toastTimeout) clearTimeout(toastTimeout);
+
+    toastTimeout = window.setTimeout(() => {
+      toast.classList.remove("opacity-100");
+      toast.classList.add("opacity-0", "pointer-events-none");
+    }, 2000);
+  }
+
+  document.querySelectorAll<HTMLButtonElement>(".emoji-btn").forEach((btn) => {
+    btn.addEventListener("click", async () => {
+      const emoji = btn.dataset.emoji;
+      if (!emoji) return;
+
+      try {
+        await navigator.clipboard.writeText(emoji);
+        showToast();
+      } catch (err) {
+        console.error("Failed to copy:", err);
+      }
+    });
+  });
+</script>
