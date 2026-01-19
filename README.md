@@ -42,10 +42,8 @@ cd emoji-selector
 npm install
 npm run dev
 ```
+## Example
 
-## Contact
-
-=======
 ```
 😀
 ↓
